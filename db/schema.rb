@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_28_190617) do
+ActiveRecord::Schema.define(version: 2023_02_28_200747) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "account_number"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2023_02_28_190617) do
     t.string "loan_amount"
     t.string "interest_rate"
     t.string "loan_term"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.string "location"
+    t.string "occupation"
+    t.string "next_of_kin"
+    t.string "next_of_kin_phone"
+    t.string "balance"
   end
 
 end

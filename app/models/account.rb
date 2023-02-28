@@ -1,3 +1,3 @@
 class Account < ActiveRecord::Base
-    belongs_to :customers
+    belongs_to :users
 end
