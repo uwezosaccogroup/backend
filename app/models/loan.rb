@@ -1,3 +1,3 @@
-class Account < ActiveRecord::Base
+class Loan < ActiveRecord::Base
     belongs_to :user
 end

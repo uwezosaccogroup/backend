@@ -3,7 +3,7 @@ class CreateAccounts < ActiveRecord::Migration[6.1]
     create_table :accounts do |t|
       t.string :account_number
       t.string :date_of_transaction
-      t.string :amount
+      t.string :balance
     end
   end
 end

@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :occupation
       t.string :next_of_kin
       t.string :next_of_kin_phone
-      t.string :balance
     end
   end
 end
