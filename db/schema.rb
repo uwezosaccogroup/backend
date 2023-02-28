@@ -10,22 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_28_200747) do
+ActiveRecord::Schema.define(version: 2023_02_28_205409) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "account_number"
     t.string "date_of_transaction"
-    t.string "amount"
-  end
-
-  create_table "customers", force: :cascade do |t|
-    t.string "name"
-    t.string "phone"
-    t.string "email"
-    t.string "location"
-    t.string "occupation"
-    t.string "next_of_kin"
-    t.string "next_of_kin_phone"
     t.string "balance"
   end
 
