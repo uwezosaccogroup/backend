@@ -1,16 +1,5 @@
+User.create(name:Faker::Name.name,email:Faker::Internet.email,phonenumber:Faker::PhoneNumber.phonenumber)
 
-10.times do 
-    User.create(
-       name: Faker::Name.name,
-        email: Faker::Internet.email,
-        phone: Faker::PhoneNumber.cell_phone,
-         location:Faker::
-         occupation:Faker::
-         next_of_kin:Faker::
-         next_of_kin_phone:Faker::
-   )
-end
+Account.create(userid:User.last.id,accountnumber:Faker::Number.unique.number)
 
-accounts ={
-    "user1":{:name =>"John Doe",:balance =>20000}
-}
+Loan.create(accountid:Account.last.id,loanterm:Faker::Number.between(1,10))
