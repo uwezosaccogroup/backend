@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2023_02_28_205409) do
     t.string "occupation"
     t.string "next_of_kin"
     t.string "next_of_kin_phone"
-    t.string "balance"
   end
 
 end
