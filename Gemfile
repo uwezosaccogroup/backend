@@ -49,4 +49,8 @@ group :test do
   gem "rack-test", "~> 1.1"
   gem "rspec", "~> 3.10"
   gem "rspec-json_expectations", "~> 2.2"
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> b9808be74ac8ba0abb06d1bf7fbd767de34f699a
