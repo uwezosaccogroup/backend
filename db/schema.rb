@@ -14,11 +14,13 @@ ActiveRecord::Schema.define(version: 2023_02_28_205409) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "account_number"
+    t.string "user_id"
     t.string "date_of_transaction"
     t.string "balance"
   end
 
   create_table "loans", force: :cascade do |t|
+    t.string "user_id"
     t.string "loan_amount"
     t.string "interest_rate"
     t.string "loan_term"
