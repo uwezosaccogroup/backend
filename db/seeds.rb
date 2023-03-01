@@ -11,4 +11,4 @@ Account.create(account_number: "12345678", date_of_transaction: "2022-01-01", ba
 Loan.create(loan_amount: "5000", interest_rate: "3.5", loan_term: "2 years", user_id: user2.id)
 
 puts "Done seeding🌵"
->>>>>>> b9808be74ac8ba0abb06d1bf7fbd767de34f699a
+
