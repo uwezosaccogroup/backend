@@ -1,4 +1,3 @@
-
 puts "Seeding...🪴🪴"
 
 user1 = User.create(name: "John", email: "john@example.com", phone: "555-1234", location: "New York")
