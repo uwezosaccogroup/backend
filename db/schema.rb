@@ -12,4 +12,29 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "accounts", force: :cascade do |t|
+    t.string "account_number"
+    t.string "user_id"
+    t.string "date_of_transaction"
+    t.string "balance"
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.string "user_id"
+    t.string "loan_amount"
+    t.string "interest_rate"
+    t.string "loan_term"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.string "location"
+    t.string "occupation"
+    t.string "next_of_kin"
+    t.string "next_of_kin_phone"
+  end
+
+
 end
