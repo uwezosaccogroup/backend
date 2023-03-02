@@ -51,16 +51,18 @@ users_data.each do |user_data|
   SavingsAccount.create(
     account_number: Faker::Number.number(digits: 8),
     date_of_transaction: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'),
-    balance: "1000",
-    user_id: user.id
+    balance: "0",
+    user_id: user.id,
+    user_name: user.name
   )
 
   elsif user_data[:account_type] == "current"
     CurrentAccount.create(
     account_number: Faker::Number.number(digits: 8),
     date_of_transaction: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'),
-    balance: "1000",
-    user_id: user.id
+    balance: "0",
+    user_id: user.id,
+    user_name: user.name
   )
   end
 end

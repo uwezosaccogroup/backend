@@ -1,5 +1,7 @@
 class ApplicationController < Sinatra::Base
     set :default_content_type, 'application/json'
+
+
     # user paths
       # get all users
       get "/" do
@@ -33,8 +35,20 @@ class ApplicationController < Sinatra::Base
           next_of_kin_phone: params[:next_of_kin_phone],
           account_type: params[:account_type]
         )
-        user.save()
-        { "Message": "Created successfully", "Status": "HTTP_200_OK"}.to_json()
+        
+        if user
+          case params[:account_type]
+          when "current"
+            account = CurrentAccount.create(user_id: user.id,user_name: user.name,balance: "0",account_number: Faker::Number.number(digits: 8),date_of_transaction: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'))
+            account.save
+          when "savings"
+            account = SavingsAccount.create(user_id: user.id,user_name: user.name,balance: "0",account_number: Faker::Number.number(digits: 8),date_of_transaction: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'))
+            account.save
+          end
+          { "Message": "Created successfully", "Status": "HTTP_200_OK"}.to_json()
+        else
+          { error: "Could not create user" }.to_json()
+        end
       end
 
       # edit a user
@@ -69,9 +83,101 @@ class ApplicationController < Sinatra::Base
         end
       end
 
-    # savings accounts paths
-    
-    # current accounts paths
+
+    # savings-accounts paths
+      # get all savings accounts
+      get "/savingsaccounts" do
+        allsavingsaccounts = SavingsAccount.all
+        if allsavingsaccounts
+          allsavingsaccounts.to_json()
+        else
+          { error: "Could not display savings accounts" }.to_json()
+        end
+      end
+
+      # get a single savings accounts
+      get "/savingsaccounts/:id" do
+        savingsaccount = SavingsAccount.find_by(id: params[:id])
+        if savingsaccount
+          savingsaccount.to_json()
+        else
+          { error: "savingsaccount not found" }.to_json()
+        end
+      end
+
+      # update and save a single savings account balance
+
+      patch "/savingsaccounts/update/:user_id" do
+        savingsaccount = SavingsAccount.find_by(user_id: params[:user_id])
+
+          if savingsaccount.update(
+            balance: params[:balance]
+          )
+          { "Message": "Account updated successfully", "Status": "HTTP_200_OK"}.to_json()
+        else
+        { error: "Failed to update Account" }.to_json()
+        end
+      end
+
+      # delete a savings account
+      delete "/savingsaccounts/:id" do
+        savingsaccount = SavingsAccount.find_by(id: params[:id])
+      
+        if savingsaccount
+          savingsaccount.destroy
+          { "Message": "Account deleted successfully", "Status": "HTTP_200_OK" }.to_json()
+        else
+          { error: "Account not found" }.to_json()
+        end
+      end
+
+
+    # current-accounts paths
+       # get all current accounts
+       get "/currentaccounts" do
+        allcurrentsaccounts = CurrentAccount.all
+        if allcurrentsaccounts
+          allcurrentaccounts.to_json()
+        else
+          { error: "Could not display current accounts" }.to_json()
+        end
+      end
+
+      # get a single current accounts
+      get "/currentaccounts/:id" do
+        currentaccount = CurrentAccount.find_by(id: params[:id])
+        if currentaccount
+          currentaccount.to_json()
+        else
+          { error: "Current account not found" }.to_json()
+        end
+      end
+
+      # update and save a single current account balance
+
+      patch "/currentaccounts/update/:user_id" do
+        currentaccount = CurrentAccount.find_by(user_id: params[:user_id])
+
+          if currentaccount.update(
+            balance: params[:balance]
+          )
+          { "Message": "Account updated successfully", "Status": "HTTP_200_OK"}.to_json()
+        else
+        { error: "Failed to update Account" }.to_json()
+        end
+      end
+
+      # delete a current account
+      delete "/currentaccounts/:id" do
+        currentaccount = CurrentAccount.find_by(id: params[:id])
+      
+        if currrentaccount
+          currentaccount.destroy
+          { "Message": "Account deleted successfully", "Status": "HTTP_200_OK" }.to_json()
+        else
+          { error: "Account not found" }.to_json()
+        end
+      end
 
 
   end
