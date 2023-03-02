@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_072408) do
+ActiveRecord::Schema.define(version: 2023_03_02_090129) do
 
   create_table "current_accounts", force: :cascade do |t|
     t.string "user_id"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2023_03_02_072408) do
     t.string "balance"
   end
 
-  create_table "savings_account", force: :cascade do |t|
+  create_table "savings_accounts", force: :cascade do |t|
     t.string "user_id"
     t.string "account_number"
     t.string "date_of_transaction"
