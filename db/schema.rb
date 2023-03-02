@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2023_03_02_090129) do
 
   create_table "current_accounts", force: :cascade do |t|
     t.string "user_id"
+    t.string "user_name"
     t.string "account_number"
     t.string "date_of_transaction"
     t.string "balance"
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(version: 2023_03_02_090129) do
 
   create_table "savings_accounts", force: :cascade do |t|
     t.string "user_id"
+    t.string "user_name"
     t.string "account_number"
     t.string "date_of_transaction"
     t.string "balance"
