@@ -135,8 +135,8 @@ class ApplicationController < Sinatra::Base
     # current-accounts paths
        # get all current accounts
        get "/currentaccounts" do
-        allcurrentsaccounts = CurrentAccount.all
-        if allcurrentsaccounts
+        allcurrentaccounts = CurrentAccount.all
+        if allcurrentaccounts
           allcurrentaccounts.to_json()
         else
           { error: "Could not display current accounts" }.to_json()
