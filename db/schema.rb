@@ -12,6 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2023_03_02_090129) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "timescaledb"
+
   create_table "current_accounts", force: :cascade do |t|
     t.string "user_id"
     t.string "user_name"
