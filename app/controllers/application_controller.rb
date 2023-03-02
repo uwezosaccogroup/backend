@@ -1,6 +1,6 @@
 class ApplicationController < Sinatra::Base
     set :default_content_type, 'application/json'
-    
+    # user paths
     # get all users
     get "/" do
       users = User.all
