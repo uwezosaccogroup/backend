@@ -30,7 +30,8 @@ class ApplicationController < Sinatra::Base
         location: params[:location],
         occupation: params[:occupation],
         next_of_kin: params[:next_of_kin],
-        next_of_kin_phone: params[:next_of_kin_phone]
+        next_of_kin_phone: params[:next_of_kin_phone],
+        account_type: params[:account_type]
       )
       { "Message": "Created successfully", "Status": "HTTP_200_OK"}.to_json()
     end
