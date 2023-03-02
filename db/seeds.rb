@@ -46,6 +46,8 @@ users_data = [
 users_data.each do |user_data|
   user = User.create(user_data)
 
+  
+  if user_data[:account_type] == "savings"
   SavingsAccount.create(
     account_number: Faker::Number.number(digits: 8),
     date_of_transaction: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'),
@@ -53,12 +55,14 @@ users_data.each do |user_data|
     user_id: user.id
   )
 
-  CurrentAccount.create(
+  elsif user_data[:account_type] == "current"
+    CurrentAccount.create(
     account_number: Faker::Number.number(digits: 8),
     date_of_transaction: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'),
     balance: "1000",
     user_id: user.id
   )
+  end
 end
 
 puts "Done seeding🌵"
