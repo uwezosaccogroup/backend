@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
 
     # user paths
       # get all users
-      get "/" do
+      get "/users" do
         users = User.all
         if users
           users.to_json()
