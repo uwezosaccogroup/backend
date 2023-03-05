@@ -82,7 +82,17 @@ class ApplicationController < Sinatra::Base
           { error: "User not found" }.to_json()
         end
       end
-
+    
+      # get the last created user
+        get "/users/last" do
+            last_user = User.order(created_at: :desc).first
+            
+          if last_user
+              last_user.to_json()
+          else
+              {error: "No users found"}.to_json()
+          end
+        end
 
     # savings-accounts paths
       # get all savings accounts
