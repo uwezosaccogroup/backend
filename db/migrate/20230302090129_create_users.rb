@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :next_of_kin
       t.string :next_of_kin_phone
       t.string :account_type
+      t.timestamps
     end
   end
 end
