@@ -84,12 +84,11 @@ class ApplicationController < Sinatra::Base
     
       # get the last created user
         get "/users/last" do
-            last_user = User.order(created_at: :desc).first
-            
-          if last_user
-              last_user.to_json()
+          user = User.last
+          if user
+            user.to_json()
           else
-              {error: "No users found"}.to_json()
+            { error: "User not found" }.to_json()
           end
         end
 
