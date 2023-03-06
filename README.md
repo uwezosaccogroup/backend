@@ -32,7 +32,7 @@ rails db:setup
 rails server
 ```
 
-6. Open the application in your browser at `http://localhost:3000/`.
+6. Open the application in your browser at `http://localhost:9292/`.
 
 ### Folder Structure 📁
 
